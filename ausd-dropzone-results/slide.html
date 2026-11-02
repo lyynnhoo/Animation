@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AUSD Dropzone Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1210; --green:#3fd46b; --green-d:#1f8f45; --gold:#e6b43a;
+    --text:#ffffff; --muted:#b9c2bc; --dim:#7f8a83;
+    --card:rgba(34,64,44,.38); --line:rgba(76,170,106,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;background:var(--bg);overflow:hidden}
+  body{font-family:'Poppins',sans-serif;color:var(--text);position:relative}
+  .bg{position:absolute;inset:0;
+    background:
+      radial-gradient(900px 620px at 100% 0%, rgba(31,143,69,.55), transparent 70%),
+      radial-gradient(700px 500px at 0% 100%, rgba(31,143,69,.12), transparent 70%),
+      linear-gradient(160deg,#141b16 0%,#0d100e 60%,#0b0d0c 100%);}
+  .wrap{position:absolute;inset:0;padding:64px 86px 0}
+  .logo{position:absolute;top:58px;right:86px;height:46px}
+  h1{font-size:76px;font-weight:700;letter-spacing:-.5px;line-height:1.05}
+  h1 .gold{color:var(--gold)}
+  .sub{margin-top:14px;font-size:27px;color:var(--muted)}
+  .sub b{color:var(--gold);font-weight:600}
+
+  .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:36px;margin-top:44px}
+  .col{display:flex;flex-direction:column}
+  .col.l>.card{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .sec-title{font-size:33px;font-weight:700;color:var(--green);margin-bottom:18px}
+  .card{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:30px 36px}
+
+  /* participants */
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .kpi{padding:0 22px;border-left:1px solid rgba(255,255,255,.12)}
+  .kpi:first-child{padding-left:0;border-left:0}
+  .kpi .rule{width:58px;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--green),transparent);margin-bottom:12px}
+  .num{font-size:66px;font-weight:700;line-height:1}
+  .num .acc{color:var(--green)}
+  .lbl{margin-top:8px;font-size:21px;color:var(--muted);line-height:1.3}
+  .lbl b{color:#fff;font-weight:600}
+
+  .bar{display:flex;height:22px;border-radius:12px;overflow:hidden;margin-top:0;background:rgba(255,255,255,.08)}
+  .bar span{display:block;height:100%}
+  .legend{display:flex;gap:28px;margin-top:12px;font-size:19px;color:var(--muted)}
+  .dot{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-2px}
+
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .tier{border-radius:16px;padding:30px 28px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:18px}
+  .pill{font-size:16px;font-weight:700;letter-spacing:.5px;padding:6px 14px;border-radius:30px;white-space:nowrap}
+  .pill.g{background:var(--green);color:#08200f}
+  .pill.o{border:1.5px solid var(--gold);color:var(--gold)}
+  .tier .n{font-size:58px;font-weight:700;line-height:1}
+  .tier .d{font-size:18px;color:var(--muted);line-height:1.3}
+
+  /* holdings */
+  .hold{display:flex;align-items:center;gap:26px;padding:22px 0}
+  .hold+.hold{border-top:1px solid rgba(255,255,255,.1)}
+  .hold img,.hold .coin{width:84px;height:84px;flex:none}
+  .coin{border-radius:50%;background:radial-gradient(circle at 35% 30%,#4fe07c,#1a8a40);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px;color:#fff;box-shadow:0 0 30px rgba(63,212,107,.35)}
+  .hold .num{font-size:58px}
+  .hold .unit{font-size:28px;font-weight:600;margin-left:6px}
+  .hold .unit.gold{color:var(--gold)} .hold .unit.green{color:var(--green)}
+
+  /* budget */
+  .budget{margin-top:30px}
+  .brow{display:flex;justify-content:space-between;align-items:flex-end}
+  .bbig{font-size:58px;font-weight:700;line-height:1}
+  .bbig small{font-size:26px;font-weight:600;color:var(--muted);margin-left:8px}
+  .pct{font-size:46px;font-weight:700;color:var(--green);line-height:1}
+  .bbar{height:22px;border-radius:12px;background:rgba(255,255,255,.08);margin-top:18px;overflow:hidden}
+  .bbar span{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--green-d),var(--green));border-radius:12px}
+  .bnote{display:flex;justify-content:space-between;margin-top:10px;font-size:19px;color:var(--muted)}
+  .bnote b{color:var(--gold);font-weight:600}
+
+  .headline{margin-top:26px;border:1.5px solid var(--gold);background:rgba(230,180,58,.12);border-radius:14px;padding:16px 26px;font-size:21px;font-weight:600;display:flex;gap:34px}
+  .headline .k{color:var(--gold);font-weight:700;margin-right:8px}
+
+  .foot{position:absolute;left:86px;right:86px;bottom:30px;display:flex;justify-content:space-between;font-size:16px;color:#5f6a63}
+  .foot b{color:var(--dim);font-weight:500}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<img class="logo" src="assets/kub-logo.png" alt="KUB">
+<div class="wrap">
+  <h1><span class="gold">AUSD</span> Dropzone Campaign Results</h1>
+  <p class="sub">Agora AUSD Dropzone on KUB Wallet &nbsp;·&nbsp; Reward drop: <b>29 October 2026</b></p>
+
+  <div class="grid">
+    <!-- LEFT -->
+    <div class="col l">
+      <div class="sec-title">Participants &amp; Rewards</div>
+      <div class="card">
+        <div class="kpis">
+          <div class="kpi"><div class="rule"></div><div class="num">460</div><div class="lbl">Total registered<br>participants</div></div>
+          <div class="kpi"><div class="rule"></div><div class="num">326</div><div class="lbl">Qualified &amp; rewarded<br><b style="color:var(--green)">70.9% success rate</b></div></div>
+          <div class="kpi"><div class="rule"></div><div class="num" style="color:var(--muted)">134</div><div class="lbl">Did not meet<br>holding criteria</div></div>
+        </div>
+        <div>
+        <div class="bar">
+          <span style="width:28.9%;background:var(--green)"></span>
+          <span style="width:42.0%;background:var(--gold)"></span>
+          <span style="width:29.1%;background:rgba(255,255,255,.18)"></span>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--green)"></i>Tier 2</span>
+          <span><i class="dot" style="background:var(--gold)"></i>Tier 1</span>
+          <span><i class="dot" style="background:rgba(255,255,255,.3)"></i>Not qualified</span>
+        </div>
+        </div>
+        <div class="tiers">
+          <div class="tier"><span class="pill g">TIER 2</span><div><div class="n">133</div><div class="d">Held both AUSD + KUB<br><span style="color:var(--green)">40.8% of rewarded users</span></div></div></div>
+          <div class="tier"><span class="pill o">TIER 1</span><div><div class="n">193</div><div class="d">Held AUSD only<br><span style="color:var(--gold)">59.2% of rewarded users</span></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col">
+      <div class="sec-title">Assets Held · 30-Day Period</div>
+      <div class="card" style="padding-top:8px;padding-bottom:8px">
+        <div class="hold">
+          <img src="assets/ausd-coin.png" alt="AUSD">
+          <div><div class="num">32,972<span class="unit gold">AUSD</span></div>
+          <div class="lbl">Held by <b>326</b> qualified holders</div></div>
+        </div>
+        <div class="hold">
+          <img src="assets/kub-mark.png" alt="KUB" style="padding:6px">
+          <div><div class="num">24,088<span class="unit green">KUB + KKUB</span></div>
+          <div class="lbl">Held by <b>152</b> qualified holders<br><span style="color:var(--dim)">(incl. 19 below the AUSD threshold)</span></div></div>
+        </div>
+      </div>
+
+      <div class="budget card">
+        <div class="brow">
+          <div><div class="lbl" style="margin:0 0 8px">Rewards distributed</div><div class="bbig">3,925<small>/ 5,450 AUSD</small></div></div>
+          <div class="pct">72%</div>
+        </div>
+        <div class="bbar"><span></span></div>
+        <div class="bnote"><span>Budget utilised</span><span>Remaining: <b>1,525 AUSD</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline">
+    <span><span class="k">Avg. reward</span>≈ 12 AUSD per qualified user</span>
+    <span><span class="k">Avg. AUSD held</span>≈ 101 AUSD per qualified user</span>
+  </div>
+</div>
+<div class="foot">
+  <span>Thank you to <b>BBT Tech</b>, <b>BBT Product</b> and <b>Coin Partnership</b> teams</span>
+  <span>Copyright © 2026 Bitkub Capital Group Holdings Co., Ltd. All Rights Reserved.</span>
+</div>
+</body>
+</html>
