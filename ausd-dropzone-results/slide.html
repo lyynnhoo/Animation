@@ -70,10 +70,10 @@
 
   /* budget */
   .budget{margin-top:30px}
-  .brow{display:flex;justify-content:space-between;align-items:flex-end}
+  .brow{display:flex;justify-content:space-between;align-items:flex-start}
   .bbig{font-size:58px;font-weight:700;line-height:1}
   .bbig small{font-size:26px;font-weight:600;color:var(--muted);margin-left:8px}
-  .pct{font-size:46px;font-weight:700;color:var(--green);line-height:1}
+  .pct{font-size:46px;font-weight:700;color:var(--green);line-height:1;margin-top:44px}
   .bbar{height:22px;border-radius:12px;background:rgba(255,255,255,.08);margin-top:18px;overflow:hidden}
   .bbar span{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--green-d),var(--green));border-radius:12px}
   .bnote{display:flex;justify-content:space-between;margin-top:10px;font-size:19px;color:var(--muted)}
@@ -82,6 +82,7 @@
   .headline{margin-top:26px;border:1.5px solid var(--gold);background:rgba(230,180,58,.12);border-radius:14px;padding:16px 26px;font-size:21px;font-weight:600;display:flex;gap:34px}
   .headline .k{color:var(--gold);font-weight:700;margin-right:8px}
 
+  .thb,.lbl b.thb{color:var(--green);font-weight:700}
   .foot{position:absolute;left:86px;right:86px;bottom:30px;display:flex;justify-content:space-between;font-size:16px;color:#5f6a63}
   .foot b{color:var(--dim);font-weight:500}
 </style>
@@ -91,7 +92,7 @@
 <img class="logo" src="assets/kub-logo.png" alt="KUB">
 <div class="wrap">
   <h1><span class="gold">AUSD</span> Dropzone Campaign Results</h1>
-  <p class="sub">Agora AUSD Dropzone on KUB Wallet &nbsp;·&nbsp; Reward drop: <b>29 October 2026</b></p>
+  <p class="sub">Agora AUSD Dropzone on KUB Wallet &nbsp;·&nbsp; Reward drop: <b>29 October 2026</b> &nbsp;·&nbsp; 1 AUSD ≈ 33.7 THB</p>
 
   <div class="grid">
     <!-- LEFT -->
@@ -113,8 +114,8 @@
         </div>
         </div>
         <div class="tiers">
-          <div class="avg"><div class="k">AVG. REWARD</div><div class="n">≈ 12<span>AUSD</span></div><div class="d">per qualified user</div></div>
-          <div class="avg"><div class="k">AVG. AUSD HELD</div><div class="n">≈ 101<span>AUSD</span></div><div class="d">per qualified user</div></div>
+          <div class="avg"><div class="k">AVG. REWARD</div><div class="n">≈ 12<span>AUSD</span></div><div class="d"><b class="thb">≈ ฿406</b> per qualified user</div></div>
+          <div class="avg"><div class="k">AVG. AUSD HELD</div><div class="n">≈ 101<span>AUSD</span></div><div class="d"><b class="thb">≈ ฿3,408</b> per qualified user</div></div>
         </div>
       </div>
     </div>
@@ -126,17 +127,18 @@
         <div class="hold" style="gap:34px">
           <img src="assets/ausd-coin.png" alt="AUSD" style="width:130px;height:130px">
           <div><div class="num" style="font-size:72px">32,972<span class="unit gold" style="font-size:34px">AUSD</span></div>
+          <div class="thb" style="font-size:30px;margin:4px 0 2px">≈ ฿1,111,156 THB</div>
           <div class="lbl">Held by <b>326</b> qualified holders</div></div>
         </div>
       </div>
 
       <div class="budget card" style="flex:1;display:flex;flex-direction:column;justify-content:center">
         <div class="brow">
-          <div><div class="lbl" style="margin:0 0 8px">Rewards distributed</div><div class="bbig">3,925<small>/ 5,450 AUSD</small></div></div>
+          <div><div class="lbl" style="margin:0 0 8px">Rewards distributed</div><div class="bbig">3,925<small>/ 5,450 AUSD</small></div><div class="lbl" style="margin-top:12px"><b class="thb">≈ ฿132,273</b> of ฿183,665 THB budget</div></div>
           <div class="pct">72%</div>
         </div>
         <div class="bbar"><span></span></div>
-        <div class="bnote"><span>Budget utilised</span><span>Remaining: <b>1,525 AUSD</b></span></div>
+        <div class="bnote"><span>Budget utilised</span><span>Remaining: <b>1,525 AUSD</b> (≈ ฿51,393)</span></div>
       </div>
     </div>
   </div>

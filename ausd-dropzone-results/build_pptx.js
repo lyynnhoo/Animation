@@ -48,8 +48,9 @@ const rect = (x, y, w, h, color, rounded) =>
 T([{ text: "AUSD ", options: { color: GOLD } }, { text: "Dropzone Campaign Results", options: { color: WHITE } }],
   { x: 0.6, y: 0.36, w: 11, h: 0.75, fontSize: 38, bold: true, objectName: "Title" });
 T([{ text: "Agora AUSD Dropzone on KUB Wallet  ·  Reward drop: ", options: { color: MUTED } },
-   { text: "29 October 2026", options: { color: GOLD, bold: true } }],
-  { x: 0.6, y: 1.12, w: 10, h: 0.36, fontSize: 14 });
+   { text: "29 October 2026", options: { color: GOLD, bold: true } },
+   { text: "  ·  1 AUSD ≈ 33.7 THB", options: { color: MUTED } }],
+  { x: 0.6, y: 1.12, w: 11, h: 0.36, fontSize: 14 });
 
 // ---- Section titles
 T("Participants & Rewards", { x: 0.6, y: 1.7, w: 6, h: 0.4, fontSize: 17, bold: true, color: GREEN });
@@ -81,36 +82,40 @@ rect(bx, by, bw * 326 / 460, bh, GREEN, true);
 
 // average metric boxes
 const avgs = [
-  { x: 0.85, k: "AVG. REWARD", n: "≈ 12", u: "AUSD", d: "per qualified user" },
-  { x: 3.82, k: "AVG. AUSD HELD", n: "≈ 101", u: "AUSD", d: "per qualified user" },
+  { x: 0.85, k: "AVG. REWARD", n: "≈ 12", u: "AUSD", thb: "≈ ฿406", d: " per qualified user" },
+  { x: 3.82, k: "AVG. AUSD HELD", n: "≈ 101", u: "AUSD", thb: "≈ ฿3,408", d: " per qualified user" },
 ];
 avgs.forEach((t) => {
   box(t.x, 4.95, 2.8, 1.55, INNER, INNER_LINE, 0.12, t.k + " box");
   T(t.k, { x: t.x + 0.25, y: 5.15, w: 2.4, h: 0.25, fontSize: 10, bold: true, color: GOLD, charSpacing: 1 });
   T([{ text: t.n + " ", options: { fontSize: 29, bold: true, color: WHITE } }, { text: t.u, options: { fontSize: 13, bold: true, color: GOLD } }],
     { x: t.x + 0.25, y: 5.42, w: 2.4, h: 0.55, valign: "bottom" });
-  T(t.d, { x: t.x + 0.25, y: 6.02, w: 2.4, h: 0.25, fontSize: 10, color: MUTED });
+  T([{ text: t.thb, options: { color: GREEN, bold: true } }, { text: t.d, options: { color: MUTED } }],
+    { x: t.x + 0.25, y: 6.02, w: 2.5, h: 0.25, fontSize: 11 });
 });
 
 // ---- RIGHT CARD 1: AUSD holdings
 box(7.13, 2.18, 5.6, 2.15, CARD, LINE, 0.16, "Holdings card");
 s.addImage({ path: A("ausd-coin.png"), x: 7.42, y: 2.73, w: 1.0, h: 1.0, altText: "AUSD" });
 T([{ text: "32,972 ", options: { fontSize: 36, bold: true, color: WHITE } }, { text: "AUSD", options: { fontSize: 17, bold: true, color: GOLD } }],
-  { x: 8.7, y: 2.62, w: 3.9, h: 0.65, valign: "bottom" });
+  { x: 8.7, y: 2.45, w: 3.9, h: 0.65, valign: "bottom" });
+T("≈ ฿1,111,156 THB", { x: 8.7, y: 3.13, w: 3.9, h: 0.32, fontSize: 15, bold: true, color: GREEN });
 T([{ text: "Held by ", options: { color: MUTED } }, { text: "326", options: { color: WHITE, bold: true } }, { text: " qualified holders", options: { color: MUTED } }],
-  { x: 8.7, y: 3.32, w: 3.9, h: 0.3, fontSize: 12 });
+  { x: 8.7, y: 3.5, w: 3.9, h: 0.3, fontSize: 12 });
 
 // ---- RIGHT CARD 2: budget
 box(7.13, 4.55, 5.6, CB - 4.55, CARD, LINE, 0.16, "Budget card");
-T("Rewards distributed", { x: 7.38, y: 4.85, w: 3, h: 0.26, fontSize: 11, color: MUTED });
+T("Rewards distributed", { x: 7.38, y: 4.76, w: 3, h: 0.26, fontSize: 11, color: MUTED });
 T([{ text: "3,925 ", options: { fontSize: 29, bold: true, color: WHITE } }, { text: "/ 5,450 AUSD", options: { fontSize: 13, bold: true, color: MUTED } }],
-  { x: 7.38, y: 5.12, w: 4, h: 0.5, valign: "bottom" });
-T("72%", { x: 11.28, y: 5.14, w: 1.2, h: 0.46, fontSize: 24, bold: true, color: GREEN, align: "right", valign: "bottom" });
-rect(7.38, 5.8, 5.1, 0.16, TRACK, true);
-rect(7.38, 5.8, 5.1 * 0.72, 0.16, GREEN, true);
-T("Budget utilised", { x: 7.38, y: 6.08, w: 2.5, h: 0.26, fontSize: 10, color: MUTED });
-T([{ text: "Remaining: ", options: { color: MUTED } }, { text: "1,525 AUSD", options: { color: GOLD, bold: true } }],
-  { x: 9.98, y: 6.08, w: 2.5, h: 0.26, fontSize: 10, align: "right" });
+  { x: 7.38, y: 5.0, w: 4, h: 0.5, valign: "bottom" });
+T([{ text: "≈ ฿132,273", options: { color: GREEN, bold: true } }, { text: " of ฿183,665 THB budget", options: { color: MUTED } }],
+  { x: 7.38, y: 5.55, w: 4.5, h: 0.26, fontSize: 11 });
+T("72%", { x: 11.28, y: 5.02, w: 1.2, h: 0.46, fontSize: 24, bold: true, color: GREEN, align: "right", valign: "bottom" });
+rect(7.38, 5.95, 5.1, 0.16, TRACK, true);
+rect(7.38, 5.95, 5.1 * 0.72, 0.16, GREEN, true);
+T("Budget utilised", { x: 7.38, y: 6.2, w: 2.5, h: 0.26, fontSize: 10, color: MUTED });
+T([{ text: "Remaining: ", options: { color: MUTED } }, { text: "1,525 AUSD", options: { color: GOLD, bold: true } }, { text: " (≈ ฿51,393)", options: { color: MUTED } }],
+  { x: 9.18, y: 6.2, w: 3.3, h: 0.26, fontSize: 10, align: "right" });
 
 // ---- Thank-you footer
 T([{ text: "Thank you to ", options: { color: "5F6A63" } }, { text: "BBT Tech", options: { color: DIM, bold: true } },
@@ -119,7 +124,7 @@ T([{ text: "Thank you to ", options: { color: "5F6A63" } }, { text: "BBT Tech", 
    { text: " teams", options: { color: "5F6A63" } }],
   { x: 0.6, y: 7.0, w: 6, h: 0.28, fontSize: 8 });
 
-s.addNotes("AUSD Dropzone results (reward drop 29 Oct 2026). 460 registered; 326 qualified (70.9%); 134 did not qualify. 30-day holdings: 32,972 AUSD across 326 holders. Budget: 3,925 of 5,450 AUSD distributed (72%), 1,525 AUSD remaining.");
+s.addNotes("AUSD Dropzone results (reward drop 29 Oct 2026). 460 registered; 326 qualified (70.9%); 134 did not qualify. 30-day holdings: 32,972 AUSD (≈ 1,111,156 THB) across 326 holders. Budget: 3,925 of 5,450 AUSD distributed (72%; ≈ 132,273 of 183,665 THB), 1,525 AUSD (≈ 51,393 THB) remaining. THB at 1 AUSD ≈ 33.7 THB (USD/THB close, 29 Oct 2026).");
 
 (async () => {
   await pres.writeFile({ fileName: OUT });
