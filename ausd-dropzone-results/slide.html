@@ -25,7 +25,7 @@
   .sub{margin-top:14px;font-size:27px;color:var(--muted)}
   .sub b{color:var(--gold);font-weight:600}
 
-  .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:36px;margin-top:44px;height:650px}
+  .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:36px;margin-top:44px;height:750px}
   .col{display:flex;flex-direction:column}
   .col.l>.card{flex:1;display:flex;flex-direction:column;justify-content:space-between}
   .sec-title{font-size:33px;font-weight:700;color:var(--green);margin-bottom:18px}
@@ -46,6 +46,11 @@
   .legend{display:flex;gap:28px;margin-top:12px;font-size:19px;color:var(--muted)}
   .dot{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-2px}
 
+  .avg{border-radius:16px;padding:28px 32px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08)}
+  .avg .k{font-size:19px;font-weight:700;letter-spacing:1.5px;color:var(--gold)}
+  .avg .n{font-size:58px;font-weight:700;line-height:1.1;margin-top:8px}
+  .avg .n span{font-size:26px;color:var(--gold);margin-left:10px}
+  .avg .d{font-size:19px;color:var(--muted);margin-top:6px}
   .tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   .tier{border-radius:16px;padding:30px 28px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:18px}
   .pill{font-size:16px;font-weight:700;letter-spacing:.5px;padding:6px 14px;border-radius:30px;white-space:nowrap}
@@ -100,19 +105,16 @@
         </div>
         <div>
         <div class="bar">
-          <span style="width:28.9%;background:var(--green)"></span>
-          <span style="width:42.0%;background:var(--gold)"></span>
-          <span style="width:29.1%;background:rgba(255,255,255,.18)"></span>
+          <span style="width:70.9%;background:var(--green);border-radius:12px"></span>
         </div>
         <div class="legend">
-          <span><i class="dot" style="background:var(--green)"></i>Tier 2</span>
-          <span><i class="dot" style="background:var(--gold)"></i>Tier 1</span>
-          <span><i class="dot" style="background:rgba(255,255,255,.3)"></i>Not qualified</span>
+          <span><i class="dot" style="background:var(--green)"></i>Qualified (326)</span>
+          <span><i class="dot" style="background:rgba(255,255,255,.3)"></i>Not qualified (134)</span>
         </div>
         </div>
         <div class="tiers">
-          <div class="tier"><span class="pill g">TIER 2</span><div><div class="n">133</div><div class="d"><span style="color:var(--green)">40.8% of rewarded users</span></div></div></div>
-          <div class="tier"><span class="pill o">TIER 1</span><div><div class="n">193</div><div class="d"><span style="color:var(--gold)">59.2% of rewarded users</span></div></div></div>
+          <div class="avg"><div class="k">AVG. REWARD</div><div class="n">≈ 12<span>AUSD</span></div><div class="d">per qualified user</div></div>
+          <div class="avg"><div class="k">AVG. AUSD HELD</div><div class="n">≈ 101<span>AUSD</span></div><div class="d">per qualified user</div></div>
         </div>
       </div>
     </div>
@@ -139,10 +141,7 @@
     </div>
   </div>
 
-  <div class="headline">
-    <span><span class="k">Avg. reward</span>≈ 12 AUSD per qualified user</span>
-    <span><span class="k">Avg. AUSD held</span>≈ 101 AUSD per qualified user</span>
-  </div>
+
 </div>
 <div class="foot">
   <span>Thank you to <b>BBT Tech</b>, <b>BBT Product</b> and <b>Coin Partnership</b> teams</span>
