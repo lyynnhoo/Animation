@@ -25,7 +25,7 @@
   .sub{margin-top:14px;font-size:27px;color:var(--muted)}
   .sub b{color:var(--gold);font-weight:600}
 
-  .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:36px;margin-top:44px}
+  .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:36px;margin-top:44px;height:650px}
   .col{display:flex;flex-direction:column}
   .col.l>.card{flex:1;display:flex;flex-direction:column;justify-content:space-between}
   .sec-title{font-size:33px;font-weight:700;color:var(--green);margin-bottom:18px}
@@ -111,29 +111,24 @@
         </div>
         </div>
         <div class="tiers">
-          <div class="tier"><span class="pill g">TIER 2</span><div><div class="n">133</div><div class="d">Held both AUSD + KUB<br><span style="color:var(--green)">40.8% of rewarded users</span></div></div></div>
-          <div class="tier"><span class="pill o">TIER 1</span><div><div class="n">193</div><div class="d">Held AUSD only<br><span style="color:var(--gold)">59.2% of rewarded users</span></div></div></div>
+          <div class="tier"><span class="pill g">TIER 2</span><div><div class="n">133</div><div class="d"><span style="color:var(--green)">40.8% of rewarded users</span></div></div></div>
+          <div class="tier"><span class="pill o">TIER 1</span><div><div class="n">193</div><div class="d"><span style="color:var(--gold)">59.2% of rewarded users</span></div></div></div>
         </div>
       </div>
     </div>
 
     <!-- RIGHT -->
     <div class="col">
-      <div class="sec-title">Assets Held · 30-Day Period</div>
-      <div class="card" style="padding-top:8px;padding-bottom:8px">
-        <div class="hold">
-          <img src="assets/ausd-coin.png" alt="AUSD">
-          <div><div class="num">32,972<span class="unit gold">AUSD</span></div>
+      <div class="sec-title">AUSD Held · 30-Day Period</div>
+      <div class="card" style="flex:1;display:flex;align-items:center">
+        <div class="hold" style="gap:34px">
+          <img src="assets/ausd-coin.png" alt="AUSD" style="width:130px;height:130px">
+          <div><div class="num" style="font-size:72px">32,972<span class="unit gold" style="font-size:34px">AUSD</span></div>
           <div class="lbl">Held by <b>326</b> qualified holders</div></div>
-        </div>
-        <div class="hold">
-          <img src="assets/kub-mark.png" alt="KUB" style="padding:6px">
-          <div><div class="num">24,088<span class="unit green">KUB + KKUB</span></div>
-          <div class="lbl">Held by <b>152</b> qualified holders<br><span style="color:var(--dim)">(incl. 19 below the AUSD threshold)</span></div></div>
         </div>
       </div>
 
-      <div class="budget card">
+      <div class="budget card" style="flex:1;display:flex;flex-direction:column;justify-content:center">
         <div class="brow">
           <div><div class="lbl" style="margin:0 0 8px">Rewards distributed</div><div class="bbig">3,925<small>/ 5,450 AUSD</small></div></div>
           <div class="pct">72%</div>

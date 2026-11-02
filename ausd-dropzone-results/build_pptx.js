@@ -53,7 +53,7 @@ T([{ text: "Agora AUSD Dropzone on KUB Wallet  ·  Reward drop: ", options: { co
 
 // ---- Section titles
 T("Participants & Rewards", { x: 0.6, y: 1.7, w: 6, h: 0.4, fontSize: 17, bold: true, color: GREEN });
-T("Assets Held · 30-Day Period", { x: 7.13, y: 1.7, w: 5.6, h: 0.4, fontSize: 17, bold: true, color: GREEN });
+T("AUSD Held · 30-Day Period", { x: 7.13, y: 1.7, w: 5.6, h: 0.4, fontSize: 17, bold: true, color: GREEN });
 
 // ---- LEFT CARD: participants
 box(0.6, 2.18, 6.27, 4.02, CARD, LINE, 0.16, "Participants card");
@@ -83,8 +83,8 @@ rect(bx + 0.15, by, g - 0.15, bh, GREEN);
 
 // tier boxes
 const tiers = [
-  { x: 0.85, pill: "TIER 2", filled: true, n: "133", d: "Held both AUSD + KUB", p: "40.8% of rewarded users", pc: GREEN },
-  { x: 3.82, pill: "TIER 1", filled: false, n: "193", d: "Held AUSD only", p: "59.2% of rewarded users", pc: GOLD },
+  { x: 0.85, pill: "TIER 2", filled: true, n: "133", p: "40.8% of rewarded users", pc: GREEN },
+  { x: 3.82, pill: "TIER 1", filled: false, n: "193", p: "59.2% of rewarded users", pc: GOLD },
 ];
 tiers.forEach((t) => {
   box(t.x, 4.78, 2.8, 1.18, INNER, INNER_LINE, 0.12, t.pill + " box");
@@ -93,37 +93,29 @@ tiers.forEach((t) => {
     fill: t.filled ? { color: GREEN } : { color: INNER }, line: t.filled ? { type: "none" } : { color: GOLD, width: 1 },
   });
   T(t.pill, { x: t.x + 0.18, y: 5.24, w: 0.62, h: 0.27, fontSize: 8, bold: true, align: "center", valign: "middle", color: t.filled ? "08200F" : GOLD });
-  T(t.n, { x: t.x + 0.95, y: 4.9, w: 1.7, h: 0.5, fontSize: 29, bold: true, color: WHITE });
-  T([{ text: t.d + "\n", options: { color: MUTED } }, { text: t.p, options: { color: t.pc } }],
-    { x: t.x + 0.95, y: 5.42, w: 1.8, h: 0.45, fontSize: 10, lineSpacingMultiple: 1.05 });
+  T(t.n, { x: t.x + 0.95, y: 4.98, w: 1.7, h: 0.5, fontSize: 29, bold: true, color: WHITE });
+  T(t.p, { x: t.x + 0.95, y: 5.5, w: 1.8, h: 0.25, fontSize: 10, color: t.pc });
 });
 
-// ---- RIGHT CARD 1: holdings
-box(7.13, 2.18, 5.6, 2.2, CARD, LINE, 0.16, "Holdings card");
-s.addImage({ path: A("ausd-coin.png"), x: 7.38, y: 2.4, w: 0.6, h: 0.6, altText: "AUSD" });
-T([{ text: "32,972 ", options: { fontSize: 29, bold: true, color: WHITE } }, { text: "AUSD", options: { fontSize: 14, bold: true, color: GOLD } }],
-  { x: 8.15, y: 2.33, w: 4.4, h: 0.5, valign: "bottom" });
+// ---- RIGHT CARD 1: AUSD holdings
+box(7.13, 2.18, 5.6, 1.95, CARD, LINE, 0.16, "Holdings card");
+s.addImage({ path: A("ausd-coin.png"), x: 7.42, y: 2.6, w: 0.95, h: 0.95, altText: "AUSD" });
+T([{ text: "32,972 ", options: { fontSize: 36, bold: true, color: WHITE } }, { text: "AUSD", options: { fontSize: 17, bold: true, color: GOLD } }],
+  { x: 8.65, y: 2.5, w: 3.9, h: 0.65, valign: "bottom" });
 T([{ text: "Held by ", options: { color: MUTED } }, { text: "326", options: { color: WHITE, bold: true } }, { text: " qualified holders", options: { color: MUTED } }],
-  { x: 8.15, y: 2.86, w: 4.4, h: 0.28, fontSize: 11 });
-s.addShape(pres.shapes.LINE, { x: 7.38, y: 3.25, w: 5.1, h: 0, line: { color: "35443A", width: 0.75 } });
-s.addImage({ path: A("kub-mark.png"), x: 7.42, y: 3.45, w: 0.52, h: 0.52, altText: "KUB" });
-T([{ text: "24,088 ", options: { fontSize: 29, bold: true, color: WHITE } }, { text: "KUB + KKUB", options: { fontSize: 14, bold: true, color: GREEN } }],
-  { x: 8.15, y: 3.3, w: 4.4, h: 0.5, valign: "bottom" });
-T([{ text: "Held by ", options: { color: MUTED } }, { text: "152", options: { color: WHITE, bold: true } }, { text: " qualified holders\n", options: { color: MUTED } },
-   { text: "(incl. 19 below the AUSD threshold)", options: { color: DIM } }],
-  { x: 8.15, y: 3.83, w: 4.4, h: 0.48, fontSize: 11, lineSpacingMultiple: 1.05 });
+  { x: 8.65, y: 3.2, w: 3.9, h: 0.3, fontSize: 12 });
 
 // ---- RIGHT CARD 2: budget
-box(7.13, 4.6, 5.6, 1.6, CARD, LINE, 0.16, "Budget card");
-T("Rewards distributed", { x: 7.38, y: 4.78, w: 3, h: 0.26, fontSize: 11, color: MUTED });
+box(7.13, 4.35, 5.6, 1.85, CARD, LINE, 0.16, "Budget card");
+T("Rewards distributed", { x: 7.38, y: 4.57, w: 3, h: 0.26, fontSize: 11, color: MUTED });
 T([{ text: "3,925 ", options: { fontSize: 29, bold: true, color: WHITE } }, { text: "/ 5,450 AUSD", options: { fontSize: 13, bold: true, color: MUTED } }],
-  { x: 7.38, y: 5.02, w: 4, h: 0.5, valign: "bottom" });
-T("72%", { x: 11.28, y: 5.04, w: 1.2, h: 0.46, fontSize: 24, bold: true, color: GREEN, align: "right", valign: "bottom" });
-rect(7.38, 5.6, 5.1, 0.16, TRACK, true);
-rect(7.38, 5.6, 5.1 * 0.72, 0.16, GREEN, true);
-T("Budget utilised", { x: 7.38, y: 5.84, w: 2.5, h: 0.26, fontSize: 10, color: MUTED });
+  { x: 7.38, y: 4.84, w: 4, h: 0.5, valign: "bottom" });
+T("72%", { x: 11.28, y: 4.86, w: 1.2, h: 0.46, fontSize: 24, bold: true, color: GREEN, align: "right", valign: "bottom" });
+rect(7.38, 5.5, 5.1, 0.16, TRACK, true);
+rect(7.38, 5.5, 5.1 * 0.72, 0.16, GREEN, true);
+T("Budget utilised", { x: 7.38, y: 5.76, w: 2.5, h: 0.26, fontSize: 10, color: MUTED });
 T([{ text: "Remaining: ", options: { color: MUTED } }, { text: "1,525 AUSD", options: { color: GOLD, bold: true } }],
-  { x: 9.98, y: 5.84, w: 2.5, h: 0.26, fontSize: 10, align: "right" });
+  { x: 9.98, y: 5.76, w: 2.5, h: 0.26, fontSize: 10, align: "right" });
 
 // ---- Headline strip
 s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 6.4, w: 12.13, h: 0.46, rectRadius: 0.1,
@@ -139,7 +131,7 @@ T([{ text: "Thank you to ", options: { color: "5F6A63" } }, { text: "BBT Tech", 
    { text: " teams", options: { color: "5F6A63" } }],
   { x: 0.6, y: 7.0, w: 6, h: 0.28, fontSize: 8 });
 
-s.addNotes("AUSD Dropzone results (reward drop 29 Oct 2026). 460 registered; 326 qualified (70.9%): Tier 2 = 133 (AUSD + KUB), Tier 1 = 193 (AUSD only); 134 did not qualify. 30-day holdings: 32,972 AUSD across 326 holders; 24,088 KUB + KKUB across 152 holders (19 below AUSD threshold). Budget: 3,925 of 5,450 AUSD distributed (72%), 1,525 AUSD remaining.");
+s.addNotes("AUSD Dropzone results (reward drop 29 Oct 2026). 460 registered; 326 qualified (70.9%): Tier 2 = 133, Tier 1 = 193; 134 did not qualify. 30-day holdings: 32,972 AUSD across 326 holders; Budget: 3,925 of 5,450 AUSD distributed (72%), 1,525 AUSD remaining.");
 
 (async () => {
   await pres.writeFile({ fileName: OUT });
